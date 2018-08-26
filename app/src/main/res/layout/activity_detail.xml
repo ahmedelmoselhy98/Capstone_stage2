@@ -108,19 +108,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Similar"
+                    android:text="@string/similar"
                     android:textAlignment="viewStart"
                     />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="MORE"
-                    android:textStyle="bold"
-                    android:id="@+id/tv_similar_more"
-                    android:textAlignment="viewEnd"
-                    android:textColor="@color/colorPrimary"
-                    />
+
             </LinearLayout>
             <android.support.v7.widget.RecyclerView
                 android:layout_width="match_parent"
@@ -152,18 +143,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Recommended"
+                    android:text="@string/recomended"
                     android:textAlignment="viewStart"
-                    />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="MORE"
-                    android:textStyle="bold"
-                    android:id="@+id/tv_recomended_more"
-                    android:textAlignment="viewEnd"
-                    android:textColor="@color/colorPrimary"
                     />
             </LinearLayout>
             <android.support.v7.widget.RecyclerView

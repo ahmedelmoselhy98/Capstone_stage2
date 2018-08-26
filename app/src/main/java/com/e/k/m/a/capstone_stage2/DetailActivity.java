@@ -109,7 +109,6 @@ public class DetailActivity extends AppCompatActivity {
 
         getMovieDetail(movieId);
         addMovieToFavorites();
-//        initUi();
     }
 
     private void updateAllWidgets() {
@@ -240,18 +239,18 @@ public class DetailActivity extends AppCompatActivity {
                     Uri uri = getContentResolver().insert(MovieProvider.CONTENT_URI,values);
                     Log.e(DetailActivity.class.getSimpleName(),uri+"");
                     favorite.setIconEnabled(true);
-                    Toasty.success(getApplicationContext(), "Added To Favorite!!", Toast.LENGTH_SHORT).show();
+                    Toasty.success(getApplicationContext(), getResources().getString(R.string.movie_add), Toast.LENGTH_SHORT).show();
                 }else {
                     // here delete movie from database
                     String selection = "movie_id = ?";
                     String selectionArgs [] = new String[]{movieDetail.getId() + ""};
                     int delete = getContentResolver().delete(MovieProvider.CONTENT_URI,selection,selectionArgs);
                     if (delete > -1) {
-                        Toasty.error(getApplicationContext(), "Deleted From Favorite!!", Toast.LENGTH_SHORT).show();
+                        Toasty.error(getApplicationContext(), getResources().getString(R.string.movie_deleted), Toast.LENGTH_SHORT).show();
                         favorite.setIconEnabled(true);
                     }
                     else
-                        Toasty.error(getApplicationContext(), "Deleted Failed!!", Toast.LENGTH_SHORT).show();
+                        Toasty.error(getApplicationContext(), getResources().getString(R.string.deleted_failed), Toast.LENGTH_SHORT).show();
                 }
                 }
         });

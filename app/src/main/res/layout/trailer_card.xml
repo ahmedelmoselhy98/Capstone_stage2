@@ -23,7 +23,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|start"
         android:layout_margin="8dp"
-        android:text="trailer Name"
         android:textStyle="bold" />
     </LinearLayout>
 

@@ -1,13 +1,17 @@
 <resources>
     <string name="app_name">Movie News</string>
-    <string name="btn_review">Reviews</string>
     <string name="btn_trailer">Trailer</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="no_internet">No Internet Connection!!</string>
     <string name="movie_add">Add To Favorite!!</string>
     <string name="movie_deleted">Deleted From Favorite!!</string>
-    <string name="more">More</string>
+    <string name="deleted_failed">Deleted Failed!!</string>
     <string name="popular">Popular</string>
+    <string name="top_rated">Top Rated</string>
+    <string name="similar">Similar</string>
+    <string name="recomended">Recommended</string>
+    <string name="upcoming">UpComing Soon</string>
+    <string name="now_playing">Now Playing</string>
     <string name="appwidget_text">EXAMPLE</string>
     <string name="add_widget">Add widget</string>
 </resources>

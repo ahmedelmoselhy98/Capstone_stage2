@@ -78,12 +78,10 @@ public class TrailerFragment extends Fragment {
             public void onResponse(Call<TrailersResponse> call, Response<TrailersResponse> response) {
                 trailers = response.body().getResults();
                 initUi();
-                Toasty.success(getActivity(), "Similar Movies Success", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onFailure(Call<TrailersResponse> call, Throwable t) {
-                Toasty.error(getActivity(), "Similar Movies Failed", Toast.LENGTH_SHORT).show();
                 Log.e(TAG, "" + t.getMessage());
             }
             });

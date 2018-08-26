@@ -57,18 +57,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Popular"
+                android:text="@string/popular"
                 android:textAlignment="viewStart"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="MORE"
-                android:textStyle="bold"
-                android:id="@+id/tv_popular_more"
-                android:textAlignment="viewEnd"
-                android:textColor="@color/colorPrimary"
                 />
         </LinearLayout>
         <android.support.v7.widget.RecyclerView
@@ -100,19 +90,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Top Rated"
+                android:text="@string/top_rated"
                 android:textAlignment="viewStart"
                 />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="MORE"
-                android:id="@+id/tv_top_rated_more"
-                android:textStyle="bold"
-                android:textAlignment="viewEnd"
-                android:textColor="@color/colorPrimary"
-                />
+
         </LinearLayout>
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
@@ -143,19 +124,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Playing Now"
+                android:text="@string/now_playing"
                 android:textAlignment="viewStart"
                 />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="MORE"
-                android:id="@+id/tv_playing_now_more"
-                android:textStyle="bold"
-                android:textAlignment="viewEnd"
-                android:textColor="@color/colorPrimary"
-                />
+
         </LinearLayout>
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
@@ -186,19 +158,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Upcoming"
+                android:text="@string/upcoming"
                 android:textAlignment="viewStart"
                 />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="MORE"
-                android:id="@+id/tv_upcoming_more"
-                android:textStyle="bold"
-                android:textAlignment="viewEnd"
-                android:textColor="@color/colorPrimary"
-                />
+
         </LinearLayout>
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"

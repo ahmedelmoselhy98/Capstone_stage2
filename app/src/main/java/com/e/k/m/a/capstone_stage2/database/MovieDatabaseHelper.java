@@ -31,7 +31,6 @@ public class MovieDatabaseHelper extends SQLiteOpenHelper {
             db.execSQL(SQL_CREATE_FAVORITE_TABLE);
         }catch (SQLException e){
             Log.e(TAG + " DATABASE CREATE",e.getMessage());
-            Toast.makeText(context, "Sorry there is Error in create your database ", Toast.LENGTH_SHORT).show();
         }
     }
     @Override
@@ -41,7 +40,6 @@ public class MovieDatabaseHelper extends SQLiteOpenHelper {
             onCreate(db);
         }catch (SQLException e){
             Log.e(TAG + " DATABASE DELETE",e.getMessage());
-            Toast.makeText(context, "Sorry there is Error in delete your database ", Toast.LENGTH_SHORT).show();
         }
     }
     public long insertFavorite(ContentValues values) {

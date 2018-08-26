@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         getUpcomingMovies();
         initAdMob();
         }else {
-            Toasty.error(getApplicationContext(), "Check Network Connection!!", Toast.LENGTH_SHORT).show();
+            Toasty.error(getApplicationContext(), getResources().getString(R.string.no_internet), Toast.LENGTH_SHORT).show();
             progressBar.setVisibility(View.GONE);
         }
     }
@@ -115,13 +115,13 @@ public class MainActivity extends AppCompatActivity {
             public void onAdOpened() {
                 // Code to be executed when an ad opens an overlay that
                 // covers the screen.
-                Toasty.success(getApplicationContext(),"Ads Open successfuly",Toast.LENGTH_SHORT).show();
+
             }
 
             @Override
             public void onAdLeftApplication() {
                 // Code to be executed when the user has left the app.
-                Toasty.success(getApplicationContext(),"Ads Left successfuly",Toast.LENGTH_SHORT).show();
+
 
             }
 
@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
             public void onAdClosed() {
                 // Code to be executed when when the user is about to return
                 // to the app after tapping on an ad.
-                Toasty.error(getApplicationContext(),"Ads Closed successfuly",Toast.LENGTH_SHORT).show();
+
 
             }
         });
