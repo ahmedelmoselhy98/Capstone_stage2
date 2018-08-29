@@ -254,7 +254,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     @Override
     public void onLoadFinished(@NonNull Loader<Cursor> loader, Cursor data) {
-
+        Log.e(TAG,"Loader Finished");
         if (data != null && data.getCount() > 0) {
             List<Movie> movies = new ArrayList<>();
             data.moveToFirst();
