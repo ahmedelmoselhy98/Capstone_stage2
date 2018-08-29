@@ -1,5 +1,6 @@
 package com.e.k.m.a.capstone_stage2;
 
+import android.app.ActivityOptions;
 import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
 import android.content.ContentValues;
@@ -15,7 +16,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -79,6 +82,8 @@ public class DetailActivity extends AppCompatActivity {
     SwitchIconView favorite;
     @BindView(R.id.progress_bar)
     ProgressBar progressBar;
+    @BindView(R.id.my_toolbar)
+    Toolbar myToolbar ;
 
 
 
@@ -100,6 +105,7 @@ public class DetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
+
         ButterKnife.bind(this);
         baseUrls = new BaseUrls();
         linearLayout.setVisibility(View.GONE);
@@ -127,7 +133,9 @@ public class DetailActivity extends AppCompatActivity {
         bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, baseUrls.getIMAGE_BASE_URL()+movieDetail.getPoster_path());
         mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
 
-        this.setTitle(movieDetail.getTitle());
+        myToolbar.setTitle(movieDetail.getTitle());
+        setSupportActionBar(myToolbar);
+
         tagLineTextView.setText(movieDetail.getTagline());
         overviewTextView.setText(movieDetail.getOverview());
 
@@ -191,7 +199,7 @@ public class DetailActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<MoviesResponse> call, Response<MoviesResponse> response) {
                 movies = response.body().getResults();
-                movieAdatpter = new MovieAdatpter(getApplicationContext(),movies);
+                movieAdatpter = new MovieAdatpter(DetailActivity.this,movies);
                 similarRecyclerView.setAdapter(movieAdatpter);
 
             }
@@ -209,7 +217,7 @@ public class DetailActivity extends AppCompatActivity {
             public void onResponse(Call<MoviesResponse> call, Response<MoviesResponse> response) {
                 Log.e(TAG,movies.size()+"");
                 movies = response.body().getResults();
-                movieAdatpter = new MovieAdatpter(getApplicationContext(),movies);
+                movieAdatpter = new MovieAdatpter(DetailActivity.this,movies);
                 recomendedRecyclerView.setAdapter(movieAdatpter);
                 progressBar.setVisibility(View.GONE);
                 linearLayout.setVisibility(View.VISIBLE);
@@ -247,7 +255,7 @@ public class DetailActivity extends AppCompatActivity {
                     int delete = getContentResolver().delete(MovieProvider.CONTENT_URI,selection,selectionArgs);
                     if (delete > -1) {
                         Toasty.error(getApplicationContext(), getResources().getString(R.string.movie_deleted), Toast.LENGTH_SHORT).show();
-                        favorite.setIconEnabled(true);
+                        favorite.setIconEnabled(false   );
                     }
                     else
                         Toasty.error(getApplicationContext(), getResources().getString(R.string.deleted_failed), Toast.LENGTH_SHORT).show();
@@ -275,6 +283,11 @@ public class DetailActivity extends AppCompatActivity {
             TrailerFragment.MOVIE_ID = movieDetail.getId();
             TrailerFragment.MOVIE_POSTER = movieDetail.getBackdrop_path();
             Intent i = new Intent(this,ContainerActivity.class);
-            startActivity(i);
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+                Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(this).toBundle();
+                startActivity(i, bundle);
+            } else {
+                startActivity(i);
+            }
         }
 }

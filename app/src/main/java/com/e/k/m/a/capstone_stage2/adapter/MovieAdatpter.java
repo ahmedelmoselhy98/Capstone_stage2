@@ -1,9 +1,12 @@
 package com.e.k.m.a.capstone_stage2.adapter;
 
+import android.app.Activity;
+import android.app.ActivityOptions;
 import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -51,7 +54,7 @@ public class MovieAdatpter extends RecyclerView.Adapter<MovieAdatpter.MovieViewH
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MovieViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull final MovieViewHolder holder, final int position) {
         holder.bindData(position);
     holder.itemView.setOnClickListener(new View.OnClickListener() {
         @Override
@@ -59,8 +62,14 @@ public class MovieAdatpter extends RecyclerView.Adapter<MovieAdatpter.MovieViewH
             if (!movies.isEmpty()){
             Intent i = new Intent(context, DetailActivity.class);
             i.putExtra(Constants.MOVIE_ID,movies.get(position).getId());
-            i.setFlags(FLAG_ACTIVITY_NEW_TASK);
-            context.startActivity(i);
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+                    Bundle bundle = ActivityOptions.makeSceneTransitionAnimation((Activity) context).toBundle();
+                    i.setFlags(FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(i,bundle);
+                } else {
+                    i.setFlags(FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(i);
+                }
             }
         }
     });

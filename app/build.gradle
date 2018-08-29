@@ -1,6 +1,14 @@
+//noinspection GradleCompatible
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        config {
+            keyAlias 'debug'
+            keyPassword 'debug123'
+            storeFile file('debug.keystore')
+        }
+    }
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.e.k.m.a.capstone_stage2"
@@ -13,13 +21,14 @@ android {
     buildTypes {
         release {
             minifyEnabled false
+            signingConfig signingConfigs.config
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     //noinspection GradleCompatible
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.android.support:design:27.1.1'

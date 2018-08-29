@@ -11,6 +11,11 @@
     <string name="similar">Similar</string>
     <string name="recomended">Recommended</string>
     <string name="upcoming">UpComing Soon</string>
+    <string name="favorite">Favorite</string>
+    <string name="last_movie">Last movie you see</string>
+    <string name="movie_image">Movie poster path</string>
+    <string name="trailer_image">trailer image</string>
+
     <string name="now_playing">Now Playing</string>
     <string name="appwidget_text">EXAMPLE</string>
     <string name="add_widget">Add widget</string>

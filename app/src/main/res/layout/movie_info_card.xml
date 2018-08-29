@@ -15,6 +15,7 @@
         <ImageView
             android:layout_width="40dp"
             android:layout_height="40dp"
+            android:contentDescription="@string/movie_image"
             android:layout_gravity="center"
             android:id="@+id/movie_info_img_src"
             />

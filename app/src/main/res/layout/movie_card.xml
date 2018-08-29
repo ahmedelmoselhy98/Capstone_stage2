@@ -20,6 +20,8 @@
             android:layout_gravity="center"
             android:id="@+id/img_movie_card"
             android:clickable="true"
+            android:focusable="true"
+            android:contentDescription="@string/movie_image"
             />
     </android.support.v7.widget.CardView>
 
