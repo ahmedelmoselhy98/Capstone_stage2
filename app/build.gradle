@@ -7,6 +7,7 @@ android {
             keyAlias 'debug'
             keyPassword 'debug123'
             storeFile file('debug.keystore')
+            storePassword 'debug123'
         }
     }
     compileSdkVersion 27
